@@ -135,15 +135,6 @@
   )
 )
 
-;; Approve allowance for another address to spend shares
-(define-public (approve (spender principal) (amount uint))
-  (map-set allowances 
-    { owner: tx-sender, spender: spender }
-    { amount: amount }
-  )
-  (ok true)
-)
-
 ;; Transfer shares to another account
 (define-public (transfer (recipient principal) (amount uint))
   (let ((sender tx-sender)
